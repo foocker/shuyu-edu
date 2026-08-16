@@ -1,0 +1,10 @@
+# Local references and generated checks
+*.png
+*.pdf
+web.md
+
+# Translation/build tooling not required by the static site
+build-full-zh.py
+geometry-zh-layer.js
+translation-cache.json
+.zh-translation-cache.json
