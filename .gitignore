@@ -8,3 +8,4 @@ build-full-zh.py
 geometry-zh-layer.js
 translation-cache.json
 .zh-translation-cache.json
+artifacts/*

@@ -12,6 +12,11 @@
       id: 'syllogistic',
       labels: { en: 'Ars Syllogistica', zh: '三段论艺术' },
       files: { en: 'ars-syllogistica.html', zh: 'ars-syllogistica-zh.html' }
+    },
+    {
+      id: 'algebra',
+      labels: { en: 'Algebra (中文)', zh: '与中学生谈谈代数' },
+      files: { zh: 'algebra-zh.html' }
     }
   ];
 
@@ -57,7 +62,10 @@
     });
     select.addEventListener('change', () => {
       const target = pages.find((page) => page.id === select.value);
-      if (target) window.location.assign(buildUrl(target.files[language], false));
+      if (target) {
+        const targetFile = target.files[language] || target.files.zh || target.files.en;
+        if (targetFile) window.location.assign(buildUrl(targetFile, false));
+      }
     });
     pageWrap.append(pageLabel, select);
 
@@ -73,7 +81,7 @@
       { id: 'en', label: 'EN', title: 'English' },
       { id: 'zh', label: '中文', title: '中文' }
     ];
-    languageOptions.forEach((item) => {
+    languageOptions.filter((item) => currentPage.files[item.id]).forEach((item) => {
       const link = document.createElement('a');
       link.className = 'site-nav__language';
       link.href = buildUrl(currentPage.files[item.id], true);

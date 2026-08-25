@@ -123,6 +123,15 @@ body.site-nav-ready > .app {
   height: calc(100dvh - var(--site-nav-height));
 }
 
+.site-nav__languages:has(.site-nav__language:only-child) {
+  grid-template-columns: 1fr;
+}
+
+body.site-nav-ready > .reader-app {
+  height: calc(100vh - var(--site-nav-height));
+  height: calc(100dvh - var(--site-nav-height));
+}
+
 body.site-nav-ready #dark-toggle,
 body.site-nav-ready #speak-toggle {
   top: calc(var(--site-nav-height) + 14px);

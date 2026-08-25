@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="伊戈·沙法列维奇《与中学生谈谈代数》中文精选交互版">
+  <title>与中学生谈谈代数</title>
+  <link rel="stylesheet" href="site-nav.css">
+  <link rel="stylesheet" href="algebra-zh.css">
+</head>
+<body>
+  <div class="reader-app">
+    <header class="reader-header">
+      <button class="icon-button menu-button" id="menu-button" type="button" aria-label="打开目录" title="目录">☰</button>
+      <div class="reader-title">
+        <strong>与中学生谈谈代数</strong>
+        <span>伊戈·沙法列维奇</span>
+      </div>
+      <button class="icon-button" id="theme-button" type="button" aria-label="切换深色模式" title="切换深色模式">◐</button>
+      <div class="reading-progress" aria-hidden="true"><span id="progress-bar"></span></div>
+    </header>
+
+    <aside class="book-nav" id="book-nav" aria-label="本书目录">
+      <div class="book-nav__heading">目录</div>
+      <nav class="book-nav__links">
+        <!-- BOOK_NAVIGATION -->
+      </nav>
+      <div class="book-nav__footer">伊戈·沙法列维奇<br>《与中学生谈谈代数》</div>
+    </aside>
+    <button class="nav-backdrop" id="nav-backdrop" type="button" aria-label="关闭目录"></button>
+
+    <main class="reader-main" id="reader-main">
+      <section class="book-cover" aria-labelledby="book-title">
+        <div class="cover-number">精选交互版</div>
+        <h1 id="book-title">与中学生谈谈代数</h1>
+        <p>伊戈·沙法列维奇</p>
+        <a href="#irrational-root-two">开始阅读</a>
+      </section>
+      <div class="article-column">
+        <!-- BOOK_CONTENT -->
+      </div>
+    </main>
+
+    <aside class="math-lab" id="math-lab" aria-live="polite">
+      <div class="math-lab__header">
+        <span>互动</span>
+        <button class="icon-button lab-close" id="lab-close" type="button" aria-label="关闭互动区" title="关闭">×</button>
+      </div>
+      <div id="lab-content"></div>
+    </aside>
+    <button class="lab-tab" id="lab-tab" type="button">互动</button>
+  </div>
+  <script src="site-nav.js"></script>
+  <script src="algebra-zh.js"></script>
+</body>
+</html>

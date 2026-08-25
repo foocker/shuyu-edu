@@ -8,12 +8,19 @@
 - [Geometry（英文）](https://foocker.github.io/shuyu-edu/index.html)
 - [三段论艺术（中文）](https://foocker.github.io/shuyu-edu/ars-syllogistica-zh.html)
 - [Ars Syllogistica（英文）](https://foocker.github.io/shuyu-edu/ars-syllogistica.html)
+- [与中学生谈谈代数（中文精选交互版）](https://foocker.github.io/shuyu-edu/algebra-zh.html)
 
 在线入口：<https://foocker.github.io/shuyu-edu/>
 
 ## 项目约定
 
-顶栏用于切换书籍，中文和英文由独立的语言按钮切换。新增双语书籍时，在 `site-nav.js` 的 `pages` 列表中加入对应文件即可。
+顶栏用于切换书籍，中文和英文由独立的语言按钮切换。新增书籍时，在 `site-nav.js` 的 `pages` 列表中加入对应文件即可；仅提供一种语言的书籍可以只配置该语言。
+
+《与中学生谈谈代数》的网页正文由 `../shuyu/part/safa` 中选定的原始 TeX 区段生成。修改章节选择或源文件后，在本目录运行：
+
+```powershell
+node scripts/build-algebra.mjs
+```
 
 后续将持续加入原创的交互式书籍、练习和阅读工具。
 
