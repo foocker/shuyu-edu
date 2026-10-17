@@ -79,7 +79,7 @@ def build(source, name, dictionary, ui_dictionary, ui_layer):
             return [normalize_arithmetic(v, key) for v in value]
         if isinstance(value, str) and key in FIELDS:
             for before, after in [('正方形', '平方数'), ('产品', '乘积'), ('平均比例', '比例中项'),
-                                  ('完美数', '完全数'), ('质数', '素数'), ('相对素数', '互素'), ('测量', '整除')]:
+                                  ('完美数', '完满数'), ('完全数', '完满数'), ('质数', '素数'), ('相对素数', '互素'), ('测量', '整除')]:
                 value = value.replace(before, after)
         return value
     if data['app'] == 'arithmetica':
