@@ -9,3 +9,4 @@ geometry-zh-layer.js
 translation-cache.json
 .zh-translation-cache.json
 artifacts/*
+.cache/

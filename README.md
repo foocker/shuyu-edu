@@ -6,6 +6,8 @@
 
 - [几何原本（中文）](https://foocker.github.io/shuyu-edu/index-zh.html)
 - [Geometry（英文）](https://foocker.github.io/shuyu-edu/index.html)
+- [算术（中文）](arithmetica-zh.html)
+- [Arithmetic（英文）](arithmetica.html)
 - [三段论艺术（中文）](https://foocker.github.io/shuyu-edu/ars-syllogistica-zh.html)
 - [Ars Syllogistica（英文）](https://foocker.github.io/shuyu-edu/ars-syllogistica.html)
 - [与中学生谈谈代数（中文精选交互版）](https://foocker.github.io/shuyu-edu/algebra-zh.html)
@@ -22,3 +24,28 @@
 
 - [Classical Mathematics](https://gcrastinus.github.io/Classical-Mathematics/)
 - [Ars Syllogistica](https://gcrastinus.github.io/ars-syllogistica/)
+
+## 几何与算术同步（2026-10-17）
+
+已核对原站在线页面，并同步至上游提交 [`1e62bbfa0e89`](https://github.com/gcrastinus/Classical-Mathematics/commit/1e62bbfa0e897abf86ae629b399cefe9e6ead152)。下载文件与该提交中的文件逐字节一致；版本号与 SHA-256 校验值记录在 `scripts/classical-upstream.json`。
+
+- 几何课程由第 1 章扩展至第 6 章：原有 39 条定理，加上新增 87 条，共 126 条。
+- 新增《几何原本》第 I—VI 卷，共 173 条命题，支持课程／原典切换、对应命题跳转和希腊文对照。
+- 新增独立算术中英文页面：第 7 章课程共 32 条定理，原典第 VII 卷共 39 条命题。第 VIII—XIII 卷未包含在原站当前发布页面内，不能据仓库中的提取文件视为已经上线。
+- 保留本站书籍菜单、中文默认入口及原有中文修订；切换语言时保留当前命题位置。
+- 修复原站两处外切图形的标签方向参数，并修正外接多边形的半径，使各边确实与圆相切。这些补丁在同步脚本内有精确匹配检查。
+- 补上原站遗漏的第 2—6 章课程定理的全屏作图入口。
+
+新增的课程和原典定义、定理／命题标题已人工校订，证明正文采用机器初译并做术语、符号和抽样检查，尚未逐句人工审校。英文页面保留原文；中文数据中的希腊文和未显示的重复英文证明原稿也予以保留。后续校订优先修改 `scripts/classical-reviewed-zh.json`（按条目 ID）或 `scripts/classical-zh-overrides.json`（按原文），再重新构建。
+
+在项目根目录执行：
+
+```sh
+python scripts/sync-classical.py
+python scripts/sync-classical.py --check
+node scripts/check-classical.cjs
+```
+
+构建只读取固定版本的上游文件和本地翻译，不会调用翻译服务。首次运行从 GitHub 下载固定版本并校验，随后使用 `.cache/`；也可用 `--source-dir DIR` 指定已下载的原始 `index.html` 与 `arithmetica.html`。更新上游时需同时更新清单、补齐新增译文，并检查本地补丁是否仍适用。当前构建要求原典命题都有完整的分步证明；若上游新增仅有整段证明的命题，会停止并要求补译正文。
+
+验证覆盖四个页面的内嵌脚本语法、双语内容结构、引用与几何标识，以及全部 378 个图形的 SVG 渲染和两处外切图形的相切关系。浏览器验证另外覆盖课程／原典目录、手机布局、证明播放、全屏作图、搜索、语言切换和希腊文开关。

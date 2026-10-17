@@ -9,6 +9,11 @@
       files: { en: 'index.html', zh: 'index-zh.html' }
     },
     {
+      id: 'arithmetic',
+      labels: { en: 'Arithmetic', zh: '算术' },
+      files: { en: 'arithmetica.html', zh: 'arithmetica-zh.html' }
+    },
+    {
       id: 'syllogistic',
       labels: { en: 'Ars Syllogistica', zh: '三段论艺术' },
       files: { en: 'ars-syllogistica.html', zh: 'ars-syllogistica-zh.html' }
@@ -88,6 +93,11 @@
       link.textContent = item.label;
       link.title = item.title;
       link.hreflang = item.id === 'zh' ? 'zh-CN' : 'en';
+      // Re-read the hash at activation: both normal navigation and scroll-spy can
+      // change the current proposition after the language links were created.
+      link.addEventListener('click', () => {
+        link.href = buildUrl(currentPage.files[item.id], true);
+      });
       if (item.id === language) link.setAttribute('aria-current', 'page');
       languages.appendChild(link);
     });
